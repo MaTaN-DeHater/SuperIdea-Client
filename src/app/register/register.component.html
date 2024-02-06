@@ -1,0 +1,47 @@
+<h1 class="mb-3">Register</h1>
+<div>
+  <div class="form-group mb-2">
+    <label>Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Enter email"
+      [(ngModel)]="email"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label>Password</label>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label>Full name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Name"
+      [(ngModel)]="fullName"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label>User type</label>
+    <select class="form-control" [(ngModel)]="type">
+      <option *ngFor="let ut of userTypes" [ngValue]="ut">{{ ut }}</option>
+    </select>
+  </div>
+  <div class="text-center mt-4">
+    <button
+      class="btn btn-warning btn-lg rounded-circle m-auto"
+      (click)="registerUser()">
+      <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<div class="alert alert-danger mt-4" role="alert" *ngIf="hasError">
+  {{ errorText }}
+</div>
